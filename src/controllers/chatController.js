@@ -13,16 +13,15 @@ async function createChat(req, res) {
 
     const existingChat = await verifyExistingChat(from, to)
     const existingChatReverse = await verifyExistingChat(to, from)
-
     if (existingChat || existingChatReverse) {
-      return
+      return res.status(500).json({msg: "Nao aceitamos duplicatas" })
     }
 
     const savedChat = await newChat(from, to)
 
     return res.status(200).json(savedChat)
   } catch (err) {
-    res.status(500).json(err.message)
+    return res.status(500).json(err.message)
   }
 }
 

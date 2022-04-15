@@ -126,6 +126,192 @@
                 }
             }
             
+        },
+        "/users": {
+            "get": {
+                "summary": "Rota de Buscar por Usuario",
+                "description": "Essa rota é responsavel fazer a listagem de todos os usuários",
+                "tags": ["User"],
+
+                "responses": {
+                    "400": { 
+                        "description": "Erro ao carregar os usuários!"
+                    },
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        },
+        "/chat/create": {
+            "post": {
+                "summary": "Rota de Chat",
+                "description": "Essa rota é responsavel por criar um chat entre dois usuários, usando como parametro quem enviou e recebeu uma mensagem",
+                "tags": ["Chat"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Chat"
+                            },
+                            "examples": {
+                                "Chat": {
+                                    "value": {
+                                        "from":"62543d823964863b42eeef29",
+                                        "to": "62543d923964863b42eeef2c"
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "500": { 
+                        "description": "Chat já existe"
+                    },
+                    "200": {
+                        "description": "Chat criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/Chat"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        },
+        "/chat/getallchats": {
+            "post": {
+                "summary": "Rota de Listagem de Chats",
+                "description": "Essa rota é responsavel por listar todos os chats em que um usuário está",
+                "tags": ["Chat"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Chat"
+                            },
+                            "examples": {
+                                "Chat": {
+                                    "value": {
+                                        "userId":"string"                                                                           
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "500": { 
+                        "description": "Chat já existe"
+                    },
+                    "200": {
+                        "description": "Chat criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/Chat"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        },
+        "/message/addmessage": {
+            "post": {
+                "summary": "Rota de Envio de Mensagem",
+                "description": "Essa rota é responsavel por criar menagens",
+                "tags": ["Message"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            },
+                            "examples": {
+                                "Message": {
+                                    "value": {
+                                        "_id":"string"                                                                           
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "500": { 
+                        "description": "Não foi possivel enviar a mensagem"
+                    },
+                    "200": {
+                        "description": "Mensagem enviada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        },
+        "/message/getmessages": {
+            "post": {
+                "summary": "Rota de Listagem de Mensagens",
+                "description": "Essa rota é responsavel por listar todos as mensagens de um chat",
+                "tags": ["Chat"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            },
+                            "examples": {
+                                "Chat": {
+                                    "value": {
+                                        "userId":"string"                                                                           
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "500": { 
+                        "description": "Chat já existe"
+                    },
+                    "200": {
+                        "description": "Chat criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/Chat"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     },
     
@@ -164,6 +350,45 @@
                       }
                      
                 }
+            },
+            "Chat": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        
+                        "id": "_id",
+                        "ref": "'User'"
+                        
+                    },
+                    "to": {
+                        "id": "_id",
+                        "ref": "'User'"
+                    },
+                    "_id": {
+                        "type":"string"
+                    }
+                    
+                }               
+            },
+            "Message": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        
+                        "type": "string",
+                        "required": true
+                        
+                    },
+                    "sender": {
+                        "id": "_id",
+                        "ref": "'User'",
+                        "required": true
+                    },
+                    "_id": {
+                        "type":"string"
+                    }
+                    
+                }               
             }
         },
         "securitySchemes": {
