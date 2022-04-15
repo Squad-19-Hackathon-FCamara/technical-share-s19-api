@@ -53,6 +53,7 @@ async function registerUser(req, res) {
 
     if (!verifyUser) {
       const newUser = await createUser(user)
+      user.password = null;
       return res.status(201).send({ user: newUser })
     }
   } catch (error) {
@@ -67,6 +68,7 @@ async function loginUser(req, res) {
     
     const user = await validateUser(email)
     const token = await validatePassword(email, password)
+    user.password = null;
     return res.status(200).json({ user: user, token: token })
   } catch (error) {
     return res.status(401).json({ msg: error.message })
