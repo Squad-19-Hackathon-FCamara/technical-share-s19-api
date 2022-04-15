@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info":{
         "title": "API Technical Share",
-        "description": "Essa API foi desenvolvida com o objetivo de: cadastrar e logar um usuario, e permetir que ele encontre e inicie conversas com mentores para terem orietacao e tirar duvidas",
+        "description": "Bem vindo(a) a documentação da API do projeto Technical Share desenvolvida pelo Squad 19 do Hackathon de Formação da FCamara! Nossa API foi desenvolvida para cadastrar e autenticar um usuário, permitindo que ele acesse a plataforma e nela encontre mentores e inicie conversas assíncronas, porém com as mensagens sendo em tempo real, permitindo assim o mentor ajude, guie e sane as dúvidas do usuário no início da sua jornada, para que não entre em sua área completamente sem saber por onde começar, dessa forma tendo um escopo e norte para seguir, na documentação abaixo é possível testar as rotas e funcionalidades da nossa API com os parâmetros solicitados.",
         "contact": {
             "email": "squad19laranja@gmail.com"
         },
@@ -12,7 +12,7 @@
         "/users/register": {
             "post": {
                 "summary": "Rota de Registro",
-                "description": "Essa rota é responsavel por registrar o usuario",
+                "description": "Essa rota é responsável por registrar o usuário",
                 "tags": ["User"],
                 "requestBody": {
                     "content": {
@@ -57,7 +57,7 @@
         "/users/login": {
             "post": {
                 "summary": "Rota de Login",
-                "description": "Essa rota é responsavel por autenticar e logar o usuario",
+                "description": "Essa rota é responsável por autenticar e logar o usuário",
                 "tags": ["User"],
                 "security":[{"bearerAuth": [] }] ,
                 "requestBody": {
@@ -98,8 +98,8 @@
         },
         "/users/{_id}": {
             "get": {
-                "summary": "Rota de Busca por Usuario Específico",
-                "description": "Essa rota é responsavel fazer a busca de um usuário específico no banco de dados pelo seu id",
+                "summary": "Rota de Busca por Usuário Específico",
+                "description": "Essa rota é responsável fazer a busca de um usuário específico no banco de dados pelo seu id",
                 "tags": ["User"],
                 "parameters": [
                     {
@@ -130,8 +130,8 @@
         },
         "/users": {
             "get": {
-                "summary": "Rota de Buscar por Usuario",
-                "description": "Essa rota é responsavel fazer a listagem de todos os usuários",
+                "summary": "Rota para Listagem de Usuários",
+                "description": "Essa rota é responsavel fazer a listagem de todos os usuários cadastrados",
                 "tags": ["User"],
 
                 "responses": {
@@ -155,7 +155,7 @@
         "/chat/create": {
             "post": {
                 "summary": "Rota de Chat",
-                "description": "Essa rota é responsavel por criar um chat entre dois usuários, usando como parametro quem enviou e recebeu uma mensagem",
+                "description": "Essa rota é responsável por criar um chat entre dois usuários, usando como parâmetro quem enviou e recebeu uma mensagem",
                 "tags": ["Chat"],
                 "requestBody": {
                     "content": {
@@ -191,13 +191,12 @@
                         }
                     }
                 }
-            }
-            
+            }           
         },
         "/chat/getallchats": {
             "post": {
                 "summary": "Rota de Listagem de Chats",
-                "description": "Essa rota é responsavel por listar todos os chats em que um usuário está",
+                "description": "Essa rota é responsável por listar todos os chats em que um usuário está",
                 "tags": ["Chat"],
                 "requestBody": {
                     "content": {
@@ -237,7 +236,7 @@
         "/message/addmessage": {
             "post": {
                 "summary": "Rota de Envio de Mensagem",
-                "description": "Essa rota é responsavel por criar menagens",
+                "description": "Essa rota é responsável por criar uma mensagem",
                 "tags": ["Message"],
                 "requestBody": {
                     "content": {

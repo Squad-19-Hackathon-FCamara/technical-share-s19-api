@@ -6,7 +6,6 @@ const {
 } = require('../repository/messageRepository')
 
 // Cria novas mensagens
-
 async function saveMessage(req, res) {
   try {
     const { from, to, message } = req.body
@@ -22,7 +21,6 @@ async function saveMessage(req, res) {
 }
 
 // Mostra as mensagens de um Chat
-
 async function getAllMessages(req, res) {
   try {
     const { from, to } = req.body

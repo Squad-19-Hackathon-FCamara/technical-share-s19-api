@@ -26,7 +26,6 @@ async function createChat(req, res) {
 }
 
 // Recebe todos os chats que o usuário participa
-
 async function getAllChatsByUserId(req, res) {
   try {
     const { userId } = req.body

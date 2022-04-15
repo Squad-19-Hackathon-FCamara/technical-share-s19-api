@@ -8,7 +8,6 @@ async function newChat(from, to) {
 }
 
 // Verifica se já existe Chat para os membros informados
-
 async function verifyExistingChat(from, to) {
   const existingChat = await Chat.findOne({
     $and: [{ from, to }]

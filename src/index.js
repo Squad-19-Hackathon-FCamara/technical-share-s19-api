@@ -12,11 +12,12 @@ require('dotenv').config()
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.send('Hello from Express!')
+  res.send('Back-End Running!')
 })
 
 // Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 // Read Json
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

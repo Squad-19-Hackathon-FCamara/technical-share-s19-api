@@ -7,12 +7,6 @@ const {
   validatePassword
 } = require('../services/userServices')
 
-function generateToken(params = {}) {
-  return jwt.sign(params, process.env.SECRET_KEY, {
-    expiresIn: 86400
-  })
-}
-
 //Lista todos os Usuarios
 async function listUsers(req, res) {
   try {
