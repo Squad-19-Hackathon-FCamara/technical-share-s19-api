@@ -97,8 +97,8 @@
         },
         "/users/{_id}": {
             "get": {
-                "summary": "Rota de Buscar por Usuario",
-                "description": "Essa rota é responsavel fazer a busca de um usuario especifico no banco de dados",
+                "summary": "Rota de Busca por Usuario Específico",
+                "description": "Essa rota é responsavel fazer a busca de um usuário específico no banco de dados pelo seu id",
                 "tags": ["User"],
                 "parameters": [
                     {
@@ -216,10 +216,10 @@
                 },
                 "responses": {
                     "500": { 
-                        "description": "Chat já existe"
+                        "description": "Não foi possivel listar os chats"
                     },
                     "200": {
-                        "description": "Chat criado com sucesso",
+                        "description": "Chat listado com sucesso",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -247,8 +247,9 @@
                             "examples": {
                                 "Message": {
                                     "value": {
-                                        "_id":"6258067b521da6081a0132bf"
-                                                                                                                  
+                                        "from":"62543d823964863b42eeef29",
+                                        "to": "62543d923964863b42eeef2c",
+                                        "message": "Mensagem para teste"                                       
                                     }
                                 }
                             }
@@ -288,7 +289,8 @@
                             "examples": {
                                 "Chat": {
                                     "value": {                                                                      
-                                            "users": ["62517ea69724c1300079b7fd", "62517eb99724c1300079b800"]                                                                                                                                                       
+                                        "from": "62517ea69724c1300079b7fd",                                                                                                                                                       
+                                        "to": "62517eb99724c1300079b800"                                                                                                                                                       
                                     }
                                 }
                             }
@@ -297,10 +299,10 @@
                 },
                 "responses": {
                     "500": { 
-                        "description": "Mensagem nao foi enviada"
+                        "description": "Nao foi possivel listar as mensagens"
                     },
                     "200": {
-                        "description": "Mensagem enviada com sucesso",
+                        "description": "Mensagens listada com sucesso",
                         "content": {
                             "application/json": {
                                 "schema": {
