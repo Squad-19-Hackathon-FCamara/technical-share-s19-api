@@ -247,7 +247,8 @@
                             "examples": {
                                 "Message": {
                                     "value": {
-                                        "_id":"string"                                                                           
+                                        "_id":"6258067b521da6081a0132bf"
+                                                                                                                  
                                     }
                                 }
                             }
@@ -277,7 +278,7 @@
             "post": {
                 "summary": "Rota de Listagem de Mensagens",
                 "description": "Essa rota é responsavel por listar todos as mensagens de um chat",
-                "tags": ["Chat"],
+                "tags": ["Message"],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -286,8 +287,8 @@
                             },
                             "examples": {
                                 "Chat": {
-                                    "value": {
-                                        "userId":"string"                                                                           
+                                    "value": {                                                                      
+                                            "users": ["62517ea69724c1300079b7fd", "62517eb99724c1300079b800"]                                                                                                                                                       
                                     }
                                 }
                             }
@@ -296,10 +297,10 @@
                 },
                 "responses": {
                     "500": { 
-                        "description": "Chat já existe"
+                        "description": "Mensagem nao foi enviada"
                     },
                     "200": {
-                        "description": "Chat criado com sucesso",
+                        "description": "Mensagem enviada com sucesso",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -379,6 +380,12 @@
                         "required": true
                         
                     },
+
+                    "users": {
+                        "items": {
+                        "type": "array"
+                        }
+                },
                     "sender": {
                         "id": "_id",
                         "ref": "'User'",
