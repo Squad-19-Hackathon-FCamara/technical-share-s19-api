@@ -20,6 +20,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  level: {
+    type: String,
+    required: true
+  },
   tags: {
     type: Array,
     required: true

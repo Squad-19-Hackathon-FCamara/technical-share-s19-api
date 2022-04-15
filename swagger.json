@@ -26,8 +26,9 @@
                                         "name": "Felipe Junior",
                                         "email": "felipe@teste.com",
                                         "password": "12345678",
-                                        "role": "Dev Fullstack - Senior",
-                                        "skills": ["CSS", "HTML", "JavaScript"]
+                                        "role": "Dev Fullstack ",
+                                        "level": "Pleno",
+                                        "tags": ["CSS", "HTML", "JavaScript"]
                                     }
                                 }
                             }
@@ -339,6 +340,10 @@
                         "required": true
                       },
                       "role": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "level": {
                         "type": "string",
                         "required": true
                       },

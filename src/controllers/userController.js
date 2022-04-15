@@ -38,7 +38,7 @@ async function listUser(req, res) {
 // Registra um novo usuario
 async function registerUser(req, res) {
   try {
-    const { name, email, role, tags, password, chats } = req.body
+    const { name, email, role, tags, password, level } = req.body
 
     const user = {
       name: name,
@@ -46,7 +46,7 @@ async function registerUser(req, res) {
       role: role,
       tags: tags,
       password: password,
-      chats: chats
+      level: level
     }
 
     const verifyUser = await verifyExistingUserByEmail(user.email)
